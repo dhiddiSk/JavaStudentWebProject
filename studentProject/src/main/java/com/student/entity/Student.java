@@ -14,7 +14,6 @@ import javax.persistence.Table;
 @Entity
 @Table(name = "student_table")
 public class Student {
-	
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -24,6 +23,28 @@ public class Student {
 	@Column(name = "firstName")
 	private String firstName;
 	
+	public Student(Long studentID, String firstName, String lastName, String city, String rollNumber, String course,
+			String email, String phoneNumber, Date dob, com.student.entity.Gender gender) {
+		super();
+		this.studentID = studentID;
+		this.firstName = firstName;
+		this.lastName = lastName;
+		this.city = city;
+		this.rollNumber = rollNumber;
+		this.course = course;
+		this.email = email;
+		this.phoneNumber = phoneNumber;
+		this.dob = dob;
+		this.Gender = gender;
+	}
+
+	@Override
+	public String toString() {
+		return "Student [studentID=" + studentID + ", firstName=" + firstName + ", lastName=" + lastName + ", city="
+				+ city + ", rollNumber=" + rollNumber + ", course=" + course + ", email=" + email + ", phoneNumber="
+				+ phoneNumber + ", dob=" + dob + ", Gender=" + Gender + "]";
+	}
+
 	@Column(name = "lastName")
 	private String lastName;
 	
@@ -45,9 +66,9 @@ public class Student {
 	@Column(name = "dob")
 	private Date dob;
 	
-	@Column(name = "gender")
+	@Column(name = "Gender")
 	@Enumerated(EnumType.STRING)
-	private GenderType GenderType;
+	private Gender Gender;
 	
 	public Long getStudentID() {
 		return studentID;
@@ -121,11 +142,11 @@ public class Student {
 		this.dob = dob;
 	}
 
-	public GenderType getGenderType() {
-		return GenderType;
+	public Gender getGender() {
+		return Gender;
 	}
 
-	public void setGenderType(GenderType genderType) {
-		GenderType = genderType;
+	public void setGender(Gender gender) {
+		Gender = gender;
 	}	
 }

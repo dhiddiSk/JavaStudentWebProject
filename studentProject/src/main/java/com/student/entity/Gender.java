@@ -1,6 +1,6 @@
 package com.student.entity;
 
-	public enum GenderType {
+	public enum Gender {
 		MALE, FEMALE;
 	}
 
