@@ -36,24 +36,37 @@ public class StudentController {
 
 	@GetMapping("/get-all/")
 	public ResponseEntity<List<Student>> studentsData() {
-
 		List<Student> responce = service.getAllStudents();
-
 		return ResponseEntity.status(HttpStatus.OK).body(responce);
-
 	}
 
-	@GetMapping("/get/{student_id}")
-	public ResponseEntity<Optional<Student>> getStudentsData(@PathVariable("student_id") Long studentId) {
-		// Perform the operation, then fetch the data from the repo, then send it to the
-		// postman
+	@GetMapping("/get/student_id")
+	public ResponseEntity<Optional<Student>> getStudentsData(@RequestParam("student_id") Long studentId) {
 		Optional<Student> responce = service.getStudentData(studentId);
 		return ResponseEntity.status(HttpStatus.OK).body(responce);
 	}
+	
+	@GetMapping("/get/student_name")
+	public ResponseEntity<Optinoal<Student>> getStudentDataByName(@RequestParam("student_name") String student_name){
+		Optional<Student> responce = service.getStudentDataWithName(student_name);
+		return ResponseEntity.status(HttpStatus.OK).body(responce);		
+	}
 
-//	@PutMapping()
-//	
-//	@DeleteMapping()
-//	
-
+	@PutMapping("/update/course/{student_id}/{student_course}")
+	public ResponseEntity<String> updateStudentData(@PathVariable("student_id") Long student_id, @PathVariable("student_course") String course)
+	{
+		String responce = service.updateStudentData(student_id, course);
+		
+		
+		return null;
+		
+	}
+	@DeleteMapping("/delete/{student_id}")
+	public ResponseEntity<String> deleteStudentsData(@PathVariable("student_id") Long student_id){
+		String responce = service.deleteStudents(student_id);
+		return ResponseEntity.status(HttpStatus.OK).body(responce);
+	}
+	
+	
+	
 }

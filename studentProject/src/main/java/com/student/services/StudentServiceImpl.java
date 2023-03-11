@@ -41,4 +41,35 @@ public class StudentServiceImpl implements StudentService {
 		return responce;
 	}
 
+	@Override
+	public String deleteStudents(Long studentId) {
+		Optional<Student> responce = studentRepo.findById(studentId);
+		studentRepo.delete(responce.get());
+		return "student has been deleted";
+	}
+
+	@Override
+	public String updateStudentData(Long student_id, String course) {
+		
+		return null;
+	}
+
+	@Override
+	public Optional<Student> getStudentDataWithName(String student_name) {
+		Optional<Student> responce = studentRepo.findByFirstName(student_name);
+		return responce;
+	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+
 }

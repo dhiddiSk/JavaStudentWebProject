@@ -12,5 +12,11 @@ public interface StudentService {
 	List<Student> getAllStudents();
 
 	Optional<Student> getStudentData(Long studentId);
+	
+	String deleteStudents(Long studentId);
+
+	String updateStudentData(Long student_id, String course);
+
+	Optional<Student> getStudentDataWithName(String student_name);
 
 }
