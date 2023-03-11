@@ -24,7 +24,7 @@ public class Student {
 	private String firstName;
 	
 	public Student(Long studentID, String firstName, String lastName, String city, String rollNumber, String course,
-			String email, String phoneNumber, Date dob, com.student.entity.Gender gender) {
+			String email, String phoneNumber, Date dob, com.student.entity.GenderType GenderType) {
 		super();
 		this.studentID = studentID;
 		this.firstName = firstName;
@@ -35,7 +35,7 @@ public class Student {
 		this.email = email;
 		this.phoneNumber = phoneNumber;
 		this.dob = dob;
-		this.Gender = gender;
+		this.GenderType = GenderType;
 	}
 	public Student() {
 		
@@ -45,7 +45,7 @@ public class Student {
 	public String toString() {
 		return "Student [studentID=" + studentID + ", firstName=" + firstName + ", lastName=" + lastName + ", city="
 				+ city + ", rollNumber=" + rollNumber + ", course=" + course + ", email=" + email + ", phoneNumber="
-				+ phoneNumber + ", dob=" + dob + ", Gender=" + Gender + "]";
+				+ phoneNumber + ", dob=" + dob + ", GenderType=" + GenderType + "]";
 	}
 
 	@Column(name = "lastName")
@@ -69,9 +69,9 @@ public class Student {
 	@Column(name = "dob")
 	private Date dob;
 	
-	@Column(name = "Gender")
+	@Column(name = "gender")
 	@Enumerated(EnumType.STRING)
-	private Gender Gender;
+	private GenderType GenderType;
 	
 	public Long getStudentID() {
 		return studentID;
@@ -145,11 +145,11 @@ public class Student {
 		this.dob = dob;
 	}
 
-	public Gender getGender() {
-		return Gender;
+	public GenderType getGender() {
+		return GenderType;
 	}
 
-	public void setGender(Gender gender) {
-		Gender = gender;
+	public void setGender(GenderType GenderType) {
+		this.GenderType = GenderType;
 	}	
 }
