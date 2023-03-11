@@ -1,6 +1,7 @@
 package com.student.services;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -30,9 +31,14 @@ public class StudentServiceImpl implements StudentService {
 
 		List<Student> responceFromRepo = studentRepo.findAll();
 		System.out.println(responceFromRepo);
-		
-		
+
 		return responceFromRepo;
+	}
+
+	@Override
+	public Optional<Student> getStudentData(Long studentId) {
+		Optional<Student> responce = studentRepo.findById(studentId);
+		return responce;
 	}
 
 }
