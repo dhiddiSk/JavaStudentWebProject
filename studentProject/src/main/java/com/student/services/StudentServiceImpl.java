@@ -1,5 +1,7 @@
 package com.student.services;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -21,6 +23,16 @@ public class StudentServiceImpl implements StudentService {
 			return "The data is not saved";
 		}
 		return "The data got saved successfully";
+	}
+
+	@Override
+	public List<Student> getAllStudents() {
+
+		List<Student> responceFromRepo = studentRepo.findAll();
+		System.out.println(responceFromRepo);
+		
+		
+		return responceFromRepo;
 	}
 
 }

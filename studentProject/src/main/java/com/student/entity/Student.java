@@ -37,6 +37,9 @@ public class Student {
 		this.dob = dob;
 		this.Gender = gender;
 	}
+	public Student() {
+		
+	}
 
 	@Override
 	public String toString() {
